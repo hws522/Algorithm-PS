@@ -1,5 +1,13 @@
 /*
-백준 1541번. 그리디 알고리즘 이용.
+백준 1541번. 그리디 알고리즘 이용. 
+처음에는 그저 문자열로 다받은 뒤에 숫자 따로 문자 따로 분리하고, 그 숫자를 자릿수포함하는 숫자로 다시 만들어서
+'-'기호가 다시 나올때까지 더해주고 '+' 기호가 나오면 그 값을 음수로 바꿔주고 따로 저장해놓고 더하고 
+이런식으로 구현을 했었는데 결과적으로 제대로 구현도 하지 못함.
+stoi를 제대로 쓸 줄도 몰랐던 탓도 있고, 더 쉽게 생각하려 했어야 했는데 참 부족하다는 걸 느낌.
+결과적으로 전체 식을 입력 받았을 때, '-'를 기준으로 묶으면 되는데 이것도 한번 더 보면 
+첫번째 연산자가 '-'일 때는 첫번째 수에서 나머지 수를 모두 빼주면 되고, 
+'+'연산자 일때는 '-'연산자가 나올 때까지 더한 뒤에 '-'연산자 뒤의 숫자들을 모두 빼주면 됨.
+결국 '-'연산자 기준으로 모두 묶을 것이고 결국 음수 처리 되기 때문.
 */
 
 /*
@@ -17,89 +25,48 @@
 */
 
 #include<iostream>
-#include<algorithm>
-#include<vector>
-#define MAX 50
+#include<string>
 
 using namespace std;
 
-class calculate
-{
-public:
-    int num; //숫자
-    char pm; //연산자 +,-
-};
-
 int main()
 {
-    vector<calculate> c(MAX); //문자와 숫자 구별해서 넣을 벡터.
-    vector<int> vec(MAX); //자릿수 포함 숫자를 넣을 벡터.
+    string s; //전체 식을 받을 문자열 s.
+    string temp = ""; //전체 식에서 숫자만 골라서 넣을 문자열 temp.
 
-    string s; //전체 식을 문자열로 받음.
+    bool btn = true; //'-'연산자가 나오기 전까지 조건문을 돌릴 때 필요한 bool.
 
-    int number = 0; 
-    int result = 0;
-    
-    cin >> s;
+    int result = 0; //결과값.
 
-    for(int i = 0; i < s.size(); i++)
+    cin >> s; //전체 식 입력.
+   
+    for(int i = 0; i <= s.size(); i++)
     {
-        if(s[i] != '+' && s[i] != '-')
+        if(s[i] == '+' || s[i] == '-' || s[i] == NULL) //숫자가 아닐 경우. 문자열 끝은 NULL값이기에 포함시켜줌.
         {
-            c[i].num = s[i] - '0'; //문자를 숫자로 바꾸어 넣기 위해.
-        }
+            if(btn) //'-'연산자가 나오지 않았을 때. '+'라는 뜻.
+            {
+                result += stoi(temp); //temp 에 들어있는 문자열 숫자들을 숫자로 변환시켜 result에 삽입.
+                temp = ""; //temp 초기화.
 
-        else
-        {
-            c[i].pm = s[i];
+                if(s[i] == '-') //'-'연산자가 나왔으니 이제 부터 빼주기만 하면 되므로 위의 조건문은 필요가 없음. 그래서 false로 바꿔줌.
+                    btn = false;
+            }
+            else
+            {
+                result -= stoi(temp); //계속 빼줌.
+                temp = "";
+            }
+
+
         }
+        else //숫자일 경우.
+            temp += s[i]; //문자열도 합쳐짐.
     }
-
-    for(int i = 0; i < s.size(); i++)
-    {
-        if(c[i].pm != '+' && c[i].pm != '-')
-        {
-            if(i != 0)
-                number *= 10;
-
-            number += c[i].num;  //연산자가 아닐 경우 number에 자릿수포함 숫자 삽입.
-        }
-
-        else if(c[i].pm == '+' || c[i].pm == '-')
-        {
-            vec[i] = number; //연산자가 나왔을 경우 전까지 나온 숫자를 vec에 삽입.
-            number = 0;      //number 초기화.
-        }
-
-        if(i == s.size() - 1)
-        {
-            vec[s.size() - 1] = number; //연산자가 더이상 없을 경우, vec에 number 삽입.   
-        }
-    }
-
-    number = 0; //number 초기화 해서 다른 연산에 사용.
-
-
-    for(int i = s.size(); i > 0; i--)
-    {
-        if(c[i].pm != '-')
-        {
-            number += vec[i]; //전체 식 끝부터 '-'가 나오기 전까지 그 합을 number에 삽입.
-        }
-
-        else if(c[i].pm == '-') //'-'연산자가 나오면 지금까지 합한 수를 음수화 해준 뒤 result에 삽입.
-        {
-            result += -number;
-            number = vec[i]; //다시 연산시작.
-        }
-
-        if(i == 1)
-        {
-            result += number; //for문이 끝난 뒤, 마지막 숫자를 result에 삽입.
-        }
-    }
+            
 
     cout << result << endl; //결과값 출력.
 
     return 0;
 }
+        
