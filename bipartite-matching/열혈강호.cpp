@@ -1,17 +1,16 @@
 /*
-¹éÁØ 11375¹ø. ÀÌºÐ ¸ÅÄª ÀÌ¿ë.
-±âÃÊÀûÀÎ ÀÌºÐ ¸ÅÄª ¹®Á¦.
-Ãà»ç¹èÁ¤°ú ÀÔ·Â¹Þ´Â ¹æ½Ä¸¸ ´Ù¸¦ »Ó µ¿ÀÏÇÏ°Ô DFS¸¦ ÀÌ¿ëÇÏ¿© ÇØ°á.
+ë°±ì¤€ 11375ë²ˆ. ì´ë¶„ ë§¤ì¹­ ì´ìš©.
+ê¸°ì´ˆì ì¸ ì´ë¶„ ë§¤ì¹­ ë¬¸ì œ.
+ì¶•ì‚¬ë°°ì •ê³¼ ìž…ë ¥ë°›ëŠ” ë°©ì‹ë§Œ ë‹¤ë¥¼ ë¿ ë™ì¼í•˜ê²Œ DFSë¥¼ ì´ìš©í•˜ì—¬ í•´ê²°.
 */
 
 /*
-Ã¹Â° ÁÙ¿¡ Á÷¿øÀÇ ¼ö N°ú ÀÏÀÇ °³¼ö MÀÌ ÁÖ¾îÁø´Ù. (1 ¡Â N, M ¡Â 1,000)
-
-µÑÂ° ÁÙºÎÅÍ N°³ÀÇ ÁÙÀÇ i¹øÂ° ÁÙ¿¡´Â i¹ø Á÷¿øÀÌ ÇÒ ¼ö ÀÖ´Â ÀÏÀÇ °³¼ö¿Í ÇÒ ¼ö ÀÖ´Â ÀÏÀÇ ¹øÈ£°¡ ÁÖ¾îÁø´Ù.
+ì²«ì§¸ ì¤„ì— ì§ì›ì˜ ìˆ˜ Nê³¼ ì¼ì˜ ê°œìˆ˜ Mì´ ì£¼ì–´ì§„ë‹¤. (1 â‰¤ N, M â‰¤ 1,000)
+ë‘˜ì§¸ ì¤„ë¶€í„° Nê°œì˜ ì¤„ì˜ ië²ˆì§¸ ì¤„ì—ëŠ” ië²ˆ ì§ì›ì´ í•  ìˆ˜ ìžˆëŠ” ì¼ì˜ ê°œìˆ˜ì™€ í•  ìˆ˜ ìžˆëŠ” ì¼ì˜ ë²ˆí˜¸ê°€ ì£¼ì–´ì§„ë‹¤.
 */
 
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <vector>
 #define MAX 1001
 
 using namespace std;
@@ -19,7 +18,7 @@ using namespace std;
 vector<int> a[MAX];
 int d[MAX];
 bool c[MAX];
-int n, m; //Á÷¿ø ,ÇØ¾ßÇÒ ÀÏ.
+int n, m; //ì§ì› ,í•´ì•¼í•  ì¼.
 
 bool dfs(int x)
 {

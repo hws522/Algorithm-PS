@@ -1,17 +1,16 @@
 /*
-¹éÁØ 11376¹ø. ÀÌºÐ ¸ÅÄª ÀÌ¿ë.
-°¢°¢ÀÇ Á÷¿øÀÌ ÃÖ´ë µÎ°³ÀÇ ÀÏÀ» ÇÒ ¼ö ÀÖ´Ù´Â Á¡¿¡¼­ µÎ¹ø¾¿ DFS¸¦ ¼öÇàÇØÁÖ¸é µÊ.
-¾î¶² °ÍÀ» ¸ÕÀú ¸ÅÄªÇÏ´øÁö ÃÖÁ¾ ¸ÅÄª ¼ýÀÚ°¡ µ¿ÀÏÇÏ¹Ç·Î ´Ü¼øÈ÷ DFS¸¦ µÎ¹ø¸¸ ¼öÇàÇÏ¸é µÊ.
+ë°±ì¤€ 11376ë²ˆ. ì´ë¶„ ë§¤ì¹­ ì´ìš©.
+ê°ê°ì˜ ì§ì›ì´ ìµœëŒ€ ë‘ê°œì˜ ì¼ì„ í•  ìˆ˜ ìžˆë‹¤ëŠ” ì ì—ì„œ ë‘ë²ˆì”© DFSë¥¼ ìˆ˜í–‰í•´ì£¼ë©´ ë¨.
+ì–´ë–¤ ê²ƒì„ ë¨¼ì € ë§¤ì¹­í•˜ë˜ì§€ ìµœì¢… ë§¤ì¹­ ìˆ«ìžê°€ ë™ì¼í•˜ë¯€ë¡œ ë‹¨ìˆœížˆ DFSë¥¼ ë‘ë²ˆë§Œ ìˆ˜í–‰í•˜ë©´ ë¨.
 */
 
 /*
-Ã¹Â° ÁÙ¿¡ Á÷¿øÀÇ ¼ö N°ú ÀÏÀÇ °³¼ö MÀÌ ÁÖ¾îÁø´Ù. (1 ¡Â N, M ¡Â 1,000)
-
-µÑÂ° ÁÙºÎÅÍ N°³ÀÇ ÁÙÀÇ i¹øÂ° ÁÙ¿¡´Â i¹ø Á÷¿øÀÌ ÇÒ ¼ö ÀÖ´Â ÀÏÀÇ °³¼ö¿Í ÇÒ ¼ö ÀÖ´Â ÀÏÀÇ ¹øÈ£°¡ ÁÖ¾îÁø´Ù.
+ì²«ì§¸ ì¤„ì— ì§ì›ì˜ ìˆ˜ Nê³¼ ì¼ì˜ ê°œìˆ˜ Mì´ ì£¼ì–´ì§„ë‹¤. (1 â‰¤ N, M â‰¤ 1,000)
+ë‘˜ì§¸ ì¤„ë¶€í„° Nê°œì˜ ì¤„ì˜ ië²ˆì§¸ ì¤„ì—ëŠ” ië²ˆ ì§ì›ì´ í•  ìˆ˜ ìžˆëŠ” ì¼ì˜ ê°œìˆ˜ì™€ í•  ìˆ˜ ìžˆëŠ” ì¼ì˜ ë²ˆí˜¸ê°€ ì£¼ì–´ì§„ë‹¤.
 */
 
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <vector>
 #define MAX 1001
 
 using namespace std;
@@ -63,7 +62,7 @@ int main()
 	}
 	int count = 0;
 
-	for (int k = 0; k < 2; k++) //dfs µÎ¹ø¾¿ ¼öÇàÇÏµµ·Ï.
+	for (int k = 0; k < 2; k++) //dfs ë‘ë²ˆì”© ìˆ˜í–‰í•˜ë„ë¡.
 	{
 		for (int i = 1; i <= n; i++)
 		{

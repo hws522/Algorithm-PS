@@ -1,18 +1,17 @@
 /*
-¹éÁØ 1671¹ø. ÀÌºÐ ¸ÅÄª ÀÌ¿ë.
-´Ü¼øÈ÷ 2¹ø¾¿ ¸ÅÄªÀ» ¼öÇàÇÏ¸é µÊ.
-»ó¾îµéÀÇ ´É·Â¿¡ µû¶ó ¸ÅÄªÀ» ½ÃÅ°´Â °ÍÀÌ¹Ç·Î ´É·Â ¼öÄ¡ ºñ±³ºÎºÐÀ» ¼öÁ¤.
-»ó¾î°¡ »ó¾î¸¦ Àâ¾Æ¸ÔÀ¸¹Ç·Î »ó¾î°¡ »ó¾î¿¡°Ô ¸ÅÄªÀÌ µÇ´Â°ÍÀÌ¶ó »ý°¢.
+ë°±ì¤€ 1671ë²ˆ. ì´ë¶„ ë§¤ì¹­ ì´ìš©.
+ë‹¨ìˆœížˆ 2ë²ˆì”© ë§¤ì¹­ì„ ìˆ˜í–‰í•˜ë©´ ë¨.
+ìƒì–´ë“¤ì˜ ëŠ¥ë ¥ì— ë”°ë¼ ë§¤ì¹­ì„ ì‹œí‚¤ëŠ” ê²ƒì´ë¯€ë¡œ ëŠ¥ë ¥ ìˆ˜ì¹˜ ë¹„êµë¶€ë¶„ì„ ìˆ˜ì •.
+ìƒì–´ê°€ ìƒì–´ë¥¼ ìž¡ì•„ë¨¹ìœ¼ë¯€ë¡œ ìƒì–´ê°€ ìƒì–´ì—ê²Œ ë§¤ì¹­ì´ ë˜ëŠ”ê²ƒì´ë¼ ìƒê°.
 */
 
 /*
-Ã¹Â° ÁÙ¿¡ »ó¾îÀÇ ¸¶¸® ¼ö NÀÌ ÁÖ¾îÁø´Ù. ÀÌ °ªÀº 50º¸´Ù ÀÛ°Å³ª °°Àº ÀÚ¿¬¼öÀÌ´Ù. 
-
-µÑÂ° ÁÙºÎÅÍ °¢ »ó¾îÀÇ Å©±â, ¼Óµµ, Áö´ÉÀÇ Á¤º¸°¡ ÁÖ¾îÁø´Ù. ÀÌ °ªÀº 2,000,000,000º¸´Ù ÀÛ°Å³ª °°Àº ÀÚ¿¬¼öÀÌ´Ù.
+ì²«ì§¸ ì¤„ì— ìƒì–´ì˜ ë§ˆë¦¬ ìˆ˜ Nì´ ì£¼ì–´ì§„ë‹¤. ì´ ê°’ì€ 50ë³´ë‹¤ ìž‘ê±°ë‚˜ ê°™ì€ ìžì—°ìˆ˜ì´ë‹¤. 
+ë‘˜ì§¸ ì¤„ë¶€í„° ê° ìƒì–´ì˜ í¬ê¸°, ì†ë„, ì§€ëŠ¥ì˜ ì •ë³´ê°€ ì£¼ì–´ì§„ë‹¤. ì´ ê°’ì€ 2,000,000,000ë³´ë‹¤ ìž‘ê±°ë‚˜ ê°™ì€ ìžì—°ìˆ˜ì´ë‹¤.
 */
 
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <vector>
 #define MAX 1001
 
 using namespace std;
@@ -37,7 +36,7 @@ bool dfs(int x)
 		if (d[y] == 0 || dfs(d[y]))
 		{
 			d[y] = x;
-			
+
 			return true;
 		}
 	}
@@ -48,12 +47,12 @@ int main()
 {
 	cin >> n;
 
-	for (int i = 1; i <= n; i++) //»ó¾î ½ºÅÝ ¼³Á¤.
+	for (int i = 1; i <= n; i++) //ìƒì–´ ìŠ¤í…Ÿ ì„¤ì •.
 	{
 		cin >> state[i][0] >> state[i][1] >> state[i][2];
 	}
 
-	for (int i = 1; i <= n - 1; i++) //»ó¾î³¢¸® ¿¬°á. ¸Ô°í ¸ÔÈû.
+	for (int i = 1; i <= n - 1; i++) //ìƒì–´ë¼ë¦¬ ì—°ê²°. ë¨¹ê³  ë¨¹íž˜.
 	{
 		for (int j = i + 1; j <= n; j++)
 		{
@@ -67,9 +66,9 @@ int main()
 				a[j].push_back(i);
 		}
 	}
-	int count = 0; //»ó¾î°¡ Àâ¾Æ¸ÔÈûÀ» ÀÇ¹Ì.
-	
-	for (int k = 0; k < 2; k++)//»ó¾î´Â ÃÖ´ë µÎ¸¶¸®¸¸ ¸ÔÀ½.
+	int count = 0; //ìƒì–´ê°€ ìž¡ì•„ë¨¹íž˜ì„ ì˜ë¯¸.
+
+	for (int k = 0; k < 2; k++) //ìƒì–´ëŠ” ìµœëŒ€ ë‘ë§ˆë¦¬ë§Œ ë¨¹ìŒ.
 	{
 		for (int i = 1; i <= n; i++)
 		{

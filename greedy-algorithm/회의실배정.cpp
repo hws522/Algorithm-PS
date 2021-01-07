@@ -21,26 +21,24 @@
 첫째 줄에 회의의 수 N(1 ≤ N ≤ 100,000)이 주어진다. 
 둘째 줄부터 N+1 줄까지 각 회의의 정보가 주어지는데 이것은 공백을 사이에 두고 회의의 시작시간과 끝나는 시간이 주어진다. 
 시작 시간과 끝나는 시간은 2^31-1보다 작거나 같은 자연수 또는 0이다.
-
 첫째 줄에 최대 사용할 수 있는 회의의 최대 개수를 출력한다.
 */
 
-#include<iostream>
-#include<algorithm>
-#include<vector>
+#include <iostream>
+#include <algorithm>
+#include <vector>
 using namespace std;
-
 
 class time
 {
-    public:
-        int start; //시작 시간.
-        int finish; //종료 시간.
+public:
+    int start;  //시작 시간.
+    int finish; //종료 시간.
 };
 
 bool compare(time a, time b)
 {
-    if(a.finish == b.finish)
+    if (a.finish == b.finish)
         return a.start < b.start; // 종료 시간이 같다면, 시작 시간이 빠른 순.
 
     else
@@ -55,7 +53,7 @@ int main()
 
     vector<time> t(n);
 
-    for(int i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
         cin >> t[i].start >> t[i].finish;
     }
@@ -63,14 +61,14 @@ int main()
     sort(t.begin(), t.end(), compare);
 
     int count = 0; // 최대 회의 수.
-    int stop = 0; // 회의 종료 시점.
+    int stop = 0;  // 회의 종료 시점.
 
-    for(int i = 0; i < t.size(); i++)
+    for (int i = 0; i < t.size(); i++)
     {
-        if(stop <= t[i].start) //회의 종료 시점이 다음 시작 지점보다 작으면
-        {//(0부터 시작이니까 바로 카운트 들어감.)
+        if (stop <= t[i].start) //회의 종료 시점이 다음 시작 지점보다 작으면
+        {                       //(0부터 시작이니까 바로 카운트 들어감.)
             stop = t[i].finish; //다음 회의 종료 시점 저장.
-            count++; //회의 수 증가.
+            count++;            //회의 수 증가.
         }
     }
 

@@ -20,18 +20,17 @@ stoi를 제대로 쓸 줄도 몰랐던 탓도 있고, 더 쉽게 생각하려 �
 식은 ‘0’~‘9’, ‘+’, 그리고 ‘-’만으로 이루어져 있고, 가장 처음과 마지막 문자는 숫자이다. 
 그리고 연속해서 두 개 이상의 연산자가 나타나지 않고, 5자리보다 많이 연속되는 숫자는 없다. 
 수는 0으로 시작할 수 있다.
-
 첫째 줄에 정답을 출력한다.
 */
 
-#include<iostream>
-#include<string>
+#include <iostream>
+#include <string>
 
 using namespace std;
 
 int main()
 {
-    string s; //전체 식을 받을 문자열 s.
+    string s;         //전체 식을 받을 문자열 s.
     string temp = ""; //전체 식에서 숫자만 골라서 넣을 문자열 temp.
 
     bool btn = true; //'-'연산자가 나오기 전까지 조건문을 돌릴 때 필요한 bool.
@@ -39,17 +38,17 @@ int main()
     int result = 0; //결과값.
 
     cin >> s; //전체 식 입력.
-   
-    for(int i = 0; i <= s.size(); i++)
+
+    for (int i = 0; i <= s.size(); i++)
     {
-        if(s[i] == '+' || s[i] == '-' || s[i] == NULL) //숫자가 아닐 경우. 문자열 끝은 NULL값이기에 포함시켜줌.
+        if (s[i] == '+' || s[i] == '-' || s[i] == NULL) //숫자가 아닐 경우. 문자열 끝은 NULL값이기에 포함시켜줌.
         {
-            if(btn) //'-'연산자가 나오지 않았을 때. '+'라는 뜻.
+            if (btn) //'-'연산자가 나오지 않았을 때. '+'라는 뜻.
             {
                 result += stoi(temp); //temp 에 들어있는 문자열 숫자들을 숫자로 변환시켜 result에 삽입.
-                temp = ""; //temp 초기화.
+                temp = "";            //temp 초기화.
 
-                if(s[i] == '-') //'-'연산자가 나왔으니 이제 부터 빼주기만 하면 되므로 위의 조건문은 필요가 없음. 그래서 false로 바꿔줌.
+                if (s[i] == '-') //'-'연산자가 나왔으니 이제 부터 빼주기만 하면 되므로 위의 조건문은 필요가 없음. 그래서 false로 바꿔줌.
                     btn = false;
             }
             else
@@ -57,16 +56,12 @@ int main()
                 result -= stoi(temp); //계속 빼줌.
                 temp = "";
             }
-
-
         }
-        else //숫자일 경우.
+        else              //숫자일 경우.
             temp += s[i]; //문자열도 합쳐짐.
     }
-            
 
     cout << result << endl; //결과값 출력.
 
     return 0;
 }
-        
