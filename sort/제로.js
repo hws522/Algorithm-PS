@@ -19,3 +19,14 @@
 재민이가 최종적으로 적어 낸 수의 합을 출력한다. 최종적으로 적어낸 수의 합은 231-1보다 작거나 같은 정수이다.
  */
 
+const input = require("fs").readFileSync("input.txt").toString().trim().split("\n");
+
+const N = Number(input.shift());
+const result = input.map((ele) => Number(ele));
+const stack = [];
+
+for (let i = 0; i < N; i++) {
+    if (result[i] !== 0) stack.push(result[i]);
+    else stack.pop();
+}
+console.log(stack.length === 0 ? 0 : stack.reduce((a, b) => a + b));
