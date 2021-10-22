@@ -16,3 +16,39 @@
 출력
 각 테스트 케이스에 대해 문서가 몇 번째로 인쇄되는지 출력한다.
 */
+
+const input = require("fs").readFileSync("input.txt").toString().trim().split("\n");
+const N = Number(input.shift());
+
+for(let i = 0; i < N; i++){
+    let [count, index] = input.shift().split(' ').map(ele => Number(ele));
+    const numberArr = input.shift().split(' ').map(ele => Number(ele));
+    const numberIndex = {
+        number: numberArr,
+        index: numberArr.map((ele, index) => index),
+    }
+    let result = 1;
+    let answer = '';
+
+    while(numberIndex.number.length > 0){
+        if (Math.max(...numberIndex.number) !== numberIndex.number[0]){
+            numberIndex.number.push(numberIndex.number[0]);
+            numberIndex.number.shift();
+            numberIndex.index.push(numberIndex.index[0]);
+            numberIndex.index.shift();
+        }
+        else if(Math.max(...numberIndex.number) === numberIndex.number[0]){
+            if(numberIndex.index[0] === index){
+                answer += `${result}\n`;
+                numberIndex.number.shift();
+                numberIndex.index.shift();
+            } 
+            else {
+                numberIndex.number.shift();
+                numberIndex.index.shift();
+                result++;
+            }
+        } 
+    }
+    console.log(answer.trim());
+}
