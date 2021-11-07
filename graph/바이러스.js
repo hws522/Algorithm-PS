@@ -41,7 +41,7 @@ const T = Number(input.shift());
 const chainNetwork = Number(input.shift());
 const graph = Array.from(Array(T + 1), () => Array(T + 1).fill(0));
 
-const solution = (n, graph) => { 
+const solution = (n) => { 
   visited = new Array(n + 1).fill(false); 
   let result = 0; 
   result = dfs(n, 1); 
@@ -72,4 +72,4 @@ input.forEach(ele => {
   graph[y][x] = 1; 
 })
 
-solution(T, graph);
+solution(T);
