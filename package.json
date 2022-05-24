@@ -12,7 +12,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc-watch --onSuccess \"/practice.js\""
+    "start": "tsc-watch --onSuccess \"node practice.js\""
   },
   "repository": {
     "type": "git",

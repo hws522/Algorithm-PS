@@ -1,4 +1,5 @@
-const fs = require('fs');
-const inputData = fs.readFileSync('input.txt').toString().split(' ');
+let fs = require('fs');
+let input = fs.readFileSync('input.txt').toString().trim().split(' ');
 
-console.log('inputData: ', inputData)
+const [a, b, c, d, e] = input;
+console.log((a * a + b * b + c * c + d * d + e * e) % 10)
