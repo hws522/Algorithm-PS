@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "CommonJS",
+        "strictNullChecks": true,
+        // "outDir": "dist",
+        // "declaration": true,
+        // "emitDeclarationOnly": true,
+    },
+    "include": [
+        "**/*"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
