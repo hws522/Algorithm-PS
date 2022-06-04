@@ -6,7 +6,7 @@ const [n, ...arr] = require("fs")
     .split("\n");
 
 // input을 map을 사용할 수 있도록 array 형태로 만듦
-let clothes: any[] = [];
+let clothes = [];
 // arr의 첫 값은 숫자기 때문에 count++를 해도 0부터 들어가도록 초기값을 -1로 초기화 함
 let count = -1;
 
@@ -21,7 +21,7 @@ for (let i = 0; i < arr.length; i++) {
     }
 }
 
-// 코드 풀이
+// 코드 풀이 
 for (let i of clothes) {
     const arr = i;
     // 해시 테이블을 만들기 위해 Map을 이용함
