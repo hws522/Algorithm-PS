@@ -23,7 +23,7 @@
         //  "noFallthroughCasesInSwitch": true, //switch문 이상하면 에러내기 
     },
     "include": [
-        "**/*"
+        "practice.ts"
     ],
     "exclude": [
         "node_modules"
