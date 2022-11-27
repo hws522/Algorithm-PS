@@ -1,11 +1,11 @@
 function solution(s){
-    let cnt = 0;
-    for (let i = 0; i < s.length; i++) {
-        if(s[i] === '(') cnt++;
-        else cnt--;
-        
-        if (cnt < 0) return false;
-    }
-    return cnt !== 0 ? false : true;
+    let 괄호 = [];
+    s.split('').forEach((ele, idx) => {
+        if(ele === '(') 괄호.push(ele);
+        else if(ele === ')') {
+            if(괄호.length === 0) return false;
+            else 괄호.pop();
+        }
+    })
+    return 괄호.length ? false : true;
 }
-
